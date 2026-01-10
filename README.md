@@ -33,10 +33,8 @@ This repository documents my **100 Days of Code Challenge**, where I commit to *
 ## 📅 Daily Progress Log
 
 ### Day 1
-- Repository created
-- Challenge started
-- Set up README and project structure
-
+- Created the repository and README
+- Learned basic Git workflow and made first commit
 
 
 <!-- Continue updating daily -->
