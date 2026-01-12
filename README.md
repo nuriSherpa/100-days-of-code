@@ -37,6 +37,10 @@ This repository documents my **100 Days of Code Challenge**, where I commit to *
 - Learned basic Git workflow and made first commit
 
 
+# Day 2 
+- Execution Context & Call Stack
+
+
 <!-- Continue updating daily -->
 
 ---
