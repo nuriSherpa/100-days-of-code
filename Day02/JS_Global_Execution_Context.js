@@ -19,3 +19,10 @@ console.log(globalVar); // Output: I am a global variable
 globalFunction();       // Output: I am a global function
 
 console.log("End of Global Execution Context");
+
+
+// Explanation:
+// When the JavaScript engine starts executing the code, it creates the Global
+// Execution Context. In this context, globalVar and globalFunction are defined
+// and can be accessed from anywhere in the code. The GEC remains active for the
+// lifetime of the program, allowing access to global variables and functions.

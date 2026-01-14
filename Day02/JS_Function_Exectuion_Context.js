@@ -31,3 +31,10 @@ console.log("End of Function Execution Context");
 // Note: The localVar and localFunction are not accessible outside myFunction
 // console.log(localVar); // This would throw a ReferenceError
 // localFunction();       // This would also throw a ReferenceError
+
+
+// Explaination:
+// When myFunction is called, a new Function Execution Context is created.
+// Inside this context, localVar and localFunction are defined and can be accessed.
+// Each time myFunction is invoked, a new context is created, allowing for
+// separate instances of local variables and functions.
