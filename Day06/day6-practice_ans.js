@@ -54,10 +54,25 @@ console.log("Statement:", account.getStatement());
 
 // Questions:
 // 1. What will be the output of line 40-44?
+// it will output:
+// Deposited $500. New balance: $1500
+// Withdrew $200. New balance: $1300
+// Insufficient funds
+// Balance: 1300
+// Statement: [ 'DEPOSIT: $500 (Balance: $1500)',
+//   'WITHDRAW: $200 (Balance: $1300)',
+//   'WITHDRAW_FAILED: $2000 (Balance: $1300)' ]
 // 2. What does the transactionHistory array contain after all operations?
+// It contains three objects representing each transaction:
+// { type: 'DEPOSIT', amount: 500, balance: 1500 }
+// { type: 'WITHDRAW', amount: 200, balance: 1300 }
+// { type: 'WITHDRAW_FAILED', amount: 2000, balance: 1300 }
 // 3. Can we access 'balance' directly using account.balance? Why?
+// No, we cannot access 'balance' directly because it is a private variable within the closure of createBankAccount function. It is not exposed in the returned object.
 // 4. What happens if we try to modify transactionHistory from outside?
+// We cannot modify transactionHistory from outside because it is also a private variable within the closure. It is not accessible from the returned object.
 // 5. How many closure scopes exist in this code?
+// There is one closure scope created by the createBankAccount function, which contains the private variables balance and transactionHistory.
 
 // Problem 2: Module Pattern with Multiple Instances
 console.log("\nProblem 2: Module Pattern with Multiple Instances");
