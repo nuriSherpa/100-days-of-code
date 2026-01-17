@@ -56,13 +56,106 @@ const user = {
         const inner =() => {
         return `Hello, I'm ${this.name}`;
     }
-inner()
+    return inner();
 },
     
-    birthday: () => {
+    birthday: function (){
         this.age++;
         return `Now I'm ${this.age}`;
     }
 };
 
+const user1=user.birthday();
+console.log(user1);
+
 console.log(user.greet());
+
+
+
+function Timer(seconds) {
+    this.seconds = seconds;
+    this.isRunning = false;
+    
+    this.start = function() {
+        this.isRunning = true;
+        console.log(`Timer started for ${this.seconds} seconds`);
+        
+        setTimeout(() => {
+            this.isRunning = false;
+            console.log(`Timer finished! Was running: ${this.isRunning}`);
+        }, this.seconds * 1000);
+    };
+}
+
+const t = new Timer(1);
+t.start();
+
+
+
+
+// Problem 5: Prototype Method Chain
+console.log("\n📌 PROBLEM 5: PROTOTYPE METHOD CHAIN");
+function Calculator() {
+    this.value = 0;
+}
+
+Calculator.prototype.add = function(x) {
+    this.value += x;
+    return this;
+};
+
+Calculator.prototype.multiply = function(x) {
+    this.value *= x;
+    return this;
+};
+
+Calculator.prototype.logValue = function() {
+    // This doesn't work in chain - FIX IT
+    console.log(`Current value: ${this.value}`);
+    return this;
+};
+
+const c1=new Calculator();
+c1
+  .add(5)
+  .multiply(2)
+  .logValue()   // Current value: 10
+  .add(3)
+  .logValue();  // Current value: 13
+
+
+// 🎯 INTERVIEW QUESTION 1: DEBOUNCE FUNCTION IMPLEMENTATION
+console.log("🎯 INTERVIEW QUESTION 1: DEBOUNCE FUNCTION IMPLEMENTATION");
+
+function debounce(func, delay) {
+    let timeoutId;
+
+    return function (...args) {
+        const context = this; // preserve `this`
+
+        clearTimeout(timeoutId);
+
+        timeoutId = setTimeout(() => {
+            func.apply(context, args); // restore `this`
+        }, delay);
+    };
+}
+
+const userInput = {
+    value: "",
+
+    updateValue: function (newValue) {
+        this.value = newValue;
+        console.log(`Value updated to: ${this.value}`);
+    }
+};
+
+// IMPORTANT: assign after object creation
+userInput.debouncedUpdate = debounce(userInput.updateValue, 300);
+
+// Test
+userInput.debouncedUpdate("Hello");
+userInput.debouncedUpdate("Hello W");
+userInput.debouncedUpdate("Hello Wo");
+userInput.debouncedUpdate("Hello Wor");
+userInput.debouncedUpdate("Hello World");
