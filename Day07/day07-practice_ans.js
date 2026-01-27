@@ -100,8 +100,8 @@ console.log("\n\n📌 PROBLEM 4: METHOD ASSIGNMENT");
   
   console.log("\nMethod assigned to variable:");
   const addFunction = calculator.add;
-  addFunction(3);
+  addFunction(3); // Value after adding 3: NaN
   
   console.log("\nUsing call():");
-  addFunction.call(calculator, 3);
+  addFunction.call(calculator, 3); // Value after adding 3: 18
 }

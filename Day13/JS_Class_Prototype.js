@@ -28,3 +28,32 @@ class Car1 {
     return `${this.make} ${this.model} is stopping...`;
   }
 }
+
+
+
+//----------------------------------------------> Comparession <------------------------
+
+// Prototype inheritance
+function ElectricCar(make, model, batteryCapacity) {
+  Car.call(this, make, model);
+  this.batteryCapacity = batteryCapacity;
+}
+
+ElectricCar.prototype = Object.create(Car.prototype);
+ElectricCar.prototype.constructor = ElectricCar;
+
+ElectricCar.prototype.charge = function() {
+  return `Charging ${this.make} ${this.model}`;
+};
+
+// Class inheritance
+class ElectricCar extends Car {
+  constructor(make, model, batteryCapacity) {
+    super(make, model);
+    this.batteryCapacity = batteryCapacity;
+  }
+  
+  charge() {
+    return `Charging ${this.make} ${this.model}`;
+  }
+}

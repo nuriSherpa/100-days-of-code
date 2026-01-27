@@ -74,29 +74,3 @@ console.log(animal3.speak1("Animal2"));
 
 
 
-// ES6 inheritance:
-class Dog extends Animal {
-  constructor(name, breed) {
-    super(name);
-    this.breed = breed;
-  }
-  
-  speak() {
-    return `${super.speak()} - Woof!`;
-  }
-}
-
-// Equivalent prototype chain:
-function Dog(name, breed) {
-  Animal.call(this, name); // Similar to super()
-  this.breed = breed;
-}
-
-// Set up prototype chain
-Dog.prototype = Object.create(Animal.prototype);
-Dog.prototype.constructor = Dog;
-
-Dog.prototype.speak = function() {
-  const parentSpeak = Animal.prototype.speak.call(this);
-  return `${parentSpeak} - Woof!`;
-};

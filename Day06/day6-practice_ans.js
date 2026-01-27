@@ -124,10 +124,15 @@ console.log("Stats:", UserModule.getStats());
 
 // Questions:
 // 1. What will user1 ID format look like?
+// It will look like "USER_0_<timestamp>" where <timestamp> is the current time in milliseconds when the user was created.
 // 2. What happens when we call getUser? Do we get direct reference or copy?
+// We get a copy of the user data, not a direct reference. This is done using the spread operator to create a new object.
 // 3. Can we access privateUsers directly? Why?
+// No, we cannot access privateUsers directly because it is a private variable within the closure. It is not exposed in the returned object.
 // 4. What's the value of privateCounter after creating two users?
+// The value of privateCounter will be 2 after creating two users.
 // 5. How does the module pattern prevent naming collisions?
+// The module pattern encapsulates variables and functions within a closure, preventing them from polluting the global namespace. This avoids naming collisions with other variables or functions in the global scope.
 
 // Problem 3: Currying and Partial Application
 console.log("\nProblem 3: Currying and Partial Application");
@@ -227,10 +232,15 @@ setTimeout(async () => {
 
 // Questions:
 // 1. Which calls will be cache hits?
+// The call to '/api/users' the second time will be a cache hit.
 // 2. What gets evicted when cache is full?
+// When the cache is full (after 3 entries), the oldest entry (the first one added) will be evicted. In this case, it will be the cache entry for '/api/users'.
 // 3. How does closure help in maintaining cache state between calls?
+// The closure created by createMemoizedApiCaller maintains the cache Map and callHistory array in its lexical scope. This allows the returned function to access and modify these variables across multiple calls, preserving the state of the cache.
 // 4. What happens if we create another memoizedFetch instance?
+// If we create another instance of memoizedFetch by calling createMemoizedApiCaller again, it will have its own separate cache and callHistory. The two instances will not share state.
 // 5. How could we improve the cache eviction strategy?
+// We could implement a more sophisticated eviction strategy, such as Least Recently Used (LRU) or Least Frequently Used (LFU), to ensure that the most relevant data remains in the cache. This could involve tracking access times or usage counts for each cache entry.
 
 // Problem 5: Event System with Closure Scope Chain
 console.log("\nProblem 5: Event System with Closure Scope Chain");
@@ -325,8 +335,19 @@ userEmitter.emit('login', 'Bob'); // Should not fire (unsubscribed)
 
 // Questions:
 // 1. What will be the output sequence?
+// The output sequence will be:
+// Middleware: user:login [ 'Alice' ]
+// User logged in: Alice
+// Middleware: user:login [ 'blocked' ]
+// Middleware: user:logout [ 'Alice' ]
+// User logged out: Alice
 // 2. How does middleware closure work?
+// The middleware functions are stored in the middleware array within the closure of createEventEmitter. When an event is emitted, each middleware function is called in sequence with the event name and arguments. The middleware can modify the arguments or block the event from proceeding by returning false.
 // 3. What happens when unsubscribe is called?
+// The unsubscribe function removes the specific event handler (wrappedHandler) from the events array, preventing it from being called in the future when the event is emitted.
 // 4. How are event namespaced with closure?
+// Event names are namespaced by prefixing them with the namespace (if provided) when they are registered and emitted. This is done using the fullEventName variable, which combines the namespace and event name.
 // 5. What's the scope chain in the wrappedHandler function?
+// The wrappedHandler function has access to its own scope, the scope of the createEventEmitter function, and the global scope. It can access the events and middleware variables defined in the outer function.
 // 6. How many closure environments exist in this system?
+// There are multiple closure environments: one for each instance of createEventEmitter, and additional ones for each event handler and middleware function created within those instances.

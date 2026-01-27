@@ -41,6 +41,35 @@ This repository documents my **100 Days of Code Challenge**, where I commit to *
 - Execution Context & Call Stack
 
 
+# Day 3
+- Hoisting
+
+# Day 4
+- Scope & Lexical Environment
+
+# Day 5
+- Closures (Basics)
+
+# Day 6
+- Closures (Advanced)
+
+# Day 7
+- this Keyword (Basics)
+
+# Day 8
+- this Advanced
+
+# Day 9
+- call, apply, bind
+
+# Day 10
+- Prototypes
+
+# Day 11
+- Prototype Chain
+
+# Day 12
+- Constructor Functions
 <!-- Continue updating daily -->
 
 ---

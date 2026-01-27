@@ -39,7 +39,6 @@ Animal.prototype.eat = function() {
     return `${this.name} is eating`;
 };
 
-console.log(Animal.eat());
 
 // Child constructor
 function Dog(name, breed) {
