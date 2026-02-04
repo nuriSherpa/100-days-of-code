@@ -10,3 +10,25 @@ console.log(5 === '5'); // false
 console.log(0 === false); // false
 console.log(null === undefined); // false
 console.log(NaN === NaN); // false (special case!)
+
+
+// false
+// 0
+// "" (empty string)
+// null
+// undefined
+// NaN
+// 0n (BigInt zero)
+
+
+// true
+// 1
+// "hello"
+// []
+// {}
+// function() {}
+// -1
+// "0" // String "0" is truthy!
+// "false" // String "false" is truthy!
+
+
