@@ -37,3 +37,26 @@ const evens = numbers.filter(function (number) {
   return number % 2 === 0;
 });
 console.log(evens); // [2, 4]
+
+
+// setTimeout - Asynchronous Callback
+console.log("Start");
+
+setTimeout(function() {
+    console.log("This runs after 2 seconds");
+}, 2000);
+
+console.log("End");
+// Output order: Start, End, This runs after 2 seconds
+
+// Simulating a button click handler
+function simulateButtonClick(handler) {
+    console.log("Button clicked!");
+    handler();
+}
+
+function showAlert() {
+    console.log("Alert shown!");
+}
+
+simulateButtonClick(showAlert);
