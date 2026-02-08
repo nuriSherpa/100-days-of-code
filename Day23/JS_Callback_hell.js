@@ -19,3 +19,20 @@ getUserData(userId, function (user) {
     });
   });
 });
+
+
+
+// Problems with Callback Hell
+// Hard to Read: Deep nesting makes code difficult to follow
+
+// Error Handling Complexity: Each callback needs individual error handling
+
+// Difficult to Maintain: Changing one part affects many nested levels
+
+// Scope Issues: Variables from outer callbacks become inaccessible
+
+// Debugging Nightmare: Stack traces become hard to interpret
+
+
+
+
