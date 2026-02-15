@@ -24,3 +24,19 @@ fetchData()
   .finally(() => {
     hideLoadingSpinner(); // Always runs
   });
+
+
+// 
+saveToDatabase(data)
+  .then(result => {
+    console.log('Save successful');
+  })
+  .catch(error => {
+    console.error('Save failed');
+  })
+  .finally(() => {
+    return closeDatabaseConnection(); // Waits for connection to close
+  })
+  .then(() => {
+    console.log('Cleanup complete');
+  });
